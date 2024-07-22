@@ -15,6 +15,7 @@ struct celular{
 };
 
 void leituraCelular(struct celular *celular){
+	printf("-------------------------------------------------------");
 	printf("Digite a marca do celular:\n");
 	scanf("%s", celular->marca);
 	
@@ -32,6 +33,7 @@ void leituraCelular(struct celular *celular){
 	
 	printf("Digite a quantidade de chips do celular:\n");
 	scanf("%d", &celular->numeroChips);
+	printf("-------------------------------------------------------");
 }
 
 int compara(struct celular *celular1, struct celular *celular2, int cam){
