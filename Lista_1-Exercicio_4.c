@@ -35,7 +35,7 @@ int main(){
     double graus, xg, cosseno;
     int ng;
 
-    printf("Digite o valor do angulo do cosseno:\n");
+    printf("Digite o valor do angulo do cosseno em graus:\n");
     scanf("%lf", &graus);
 
     printf("Digite o numero de aproximacao:\n");
@@ -45,7 +45,7 @@ int main(){
 
     cosseno = calculaCosseno(xg, ng);
 
-    printf("O valor do cosseno e: %lf", cosseno);
+    printf("O valor do cosseno em radianos e: %lf", cosseno);
 
     return 0;
 }
