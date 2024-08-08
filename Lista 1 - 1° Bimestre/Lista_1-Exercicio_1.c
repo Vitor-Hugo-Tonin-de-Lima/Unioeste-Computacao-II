@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <string.h>
+#include <strings.h>
 
 struct memoria{
 	double quantidade;
@@ -14,10 +15,15 @@ struct celular{
 	int numeroChips;
 };
 
+void limpaStdin(){
+	char c;
+	while ((c = getchar()) != '\n' && c != EOF);
+}
+
 void leituraCelular(struct celular *celular){
-	printf("-------------------------------------------------------");
+	printf("-------------------------------------------------------\n");
 	printf("Digite a marca do celular:\n");
-	scanf("%s", celular->marca);
+	fgets(celular->marca, 100, stdin);
 	
 	printf("Digite o preco do celular:\n");
 	scanf("%lf", &celular->preco);
@@ -25,15 +31,17 @@ void leituraCelular(struct celular *celular){
 	printf("Digite a quantidade de memoria do celular:\n");
 	scanf("%lf", &celular->memoria1.quantidade);
 	
-	printf("Digite a unidade de memoria do celular:\n");
+	printf("Digite a unidade de memoria do celular: [MB/GB]\n");
 	scanf("%s", celular->memoria1.unidade);
 	
-	printf("Digite o peso do celular:\n");
+	printf("Digite o peso do celular em gramas:\n");
 	scanf("%d", &celular->peso);
 	
 	printf("Digite a quantidade de chips do celular:\n");
 	scanf("%d", &celular->numeroChips);
-	printf("-------------------------------------------------------");
+	
+	limpaStdin();
+	printf("-------------------------------------------------------\n");
 }
 
 int compara(struct celular *celular1, struct celular *celular2, int cam){
@@ -51,11 +59,11 @@ int compara(struct celular *celular1, struct celular *celular2, int cam){
 		memoriaCelular1 = celular1->memoria1.quantidade;
 		memoriaCelular2 = celular2->memoria1.quantidade;
 		
-		if(strcmp(celular1->memoria1.unidade,"GB") == 0){
+		if(strcasecmp(celular1->memoria1.unidade,"GB") == 0){
 			memoriaCelular1 *= 1000;
 		}
 		
-		if(strcmp(celular2->memoria1.unidade,"GB") == 0){
+		if(strcasecmp(celular2->memoria1.unidade,"GB") == 0){
 			memoriaCelular2 *= 1000;
 		}
 		
@@ -88,11 +96,14 @@ int compara(struct celular *celular1, struct celular *celular2, int cam){
 }
 
 void imprimeCelular(struct celular *celular){
+	printf("-------------------------------------------------------\n");
 	printf("Dados do celular:\n");
-	printf("Marca: %s\n", celular->marca);
-	printf("Quantidade de memoria: %lf %s\n", celular->memoria1.quantidade, celular->memoria1.unidade);
+	printf("Marca: %s", celular->marca);
+	printf("Preco: %.2lf\n", celular->preco);
+	printf("Quantidade de memoria: %.2lf %s\n", celular->memoria1.quantidade, celular->memoria1.unidade);
 	printf("Peso: %d\n", celular->peso);
 	printf("Quantidade de chips: %d\n", celular->numeroChips);
+	printf("-------------------------------------------------------\n");
 }
 
 int main(){
