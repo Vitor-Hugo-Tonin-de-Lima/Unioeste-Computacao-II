@@ -41,7 +41,7 @@ void imprimeConjunto(double *vetor, int quantidadeElementos){
         for(int i=0;i<quantidadeElementos-1;i++){
             printf("%lf, ",vetor[i]);
         }
-        printf("%lf]", vetor[quantidadeElementos]);
+        printf("%lf]", vetor[quantidadeElementos-1]);
     }
 }
 
