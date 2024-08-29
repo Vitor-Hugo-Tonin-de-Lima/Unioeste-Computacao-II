@@ -21,14 +21,14 @@ int main(){
 	
 	for(int i=0;i<limitador;i++){
 		tridimensional[i] = (int **) malloc(limitador * sizeof(int *));
-		if(tridimensional == NULL){
+		if(tridimensional[i] == NULL){
 			printf("Erro ao alocar memoria.");
 			return 1;
 		}
 		
 		for(int j=0;j<limitador;j++){
 			tridimensional[i][j] = (int *) malloc(limitador * sizeof(int));
-			if(tridimensional == NULL){
+			if(tridimensional[i][i] == NULL){
 			printf("Erro ao alocar memoria.");
 			return 1;
 			}
@@ -57,9 +57,7 @@ int main(){
 		for(int j=0;j<limitador;j++){
 			free(tridimensional[i][j]);
 		}
-	}
-	
-	for(int i=0;i<limitador;i++){
+		
 		free(tridimensional[i]);
 	}
 	
